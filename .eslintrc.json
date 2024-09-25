@@ -10,7 +10,8 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     "prettier/prettier": "error",
-    "no-control-regex": "off"
+    "no-control-regex": "off",
+    "@typescript-eslint/no-unused-expressions": "off"
   },
   "root": true
 }
