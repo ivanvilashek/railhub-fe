@@ -3,4 +3,6 @@ export type User = {
   lastName: string
   email: string
   id: string
+  createdAt: Date
+  updatedAt: Date
 }

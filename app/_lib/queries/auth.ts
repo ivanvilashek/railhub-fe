@@ -14,7 +14,11 @@ export const useLogin = () =>
   })
 
 export const useSignUp = () =>
-  useMutation<Tokens, Error, Omit<User, 'id'> & { password: string }>({
+  useMutation<
+    Tokens,
+    Error,
+    Omit<User, 'id' | 'createdAt' | 'updatedAt'> & { password: string }
+  >({
     mutationFn: async (payload) => {
       const { data } = await api.post(API.SIGN_UP, payload)
       return data
