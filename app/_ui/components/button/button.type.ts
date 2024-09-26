@@ -10,4 +10,5 @@ export type ButtonProps = Omit<
   variant?: ButtonVariant
   isLoading?: boolean
   isDisabled?: boolean
+  loaderClass?: string
 }

@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     default: 'RailHub',
   },
   description: 'RailHub',
+  icons: {
+    icon: '/icon.svg',
+  },
 }
 
 export default function RootLayout({

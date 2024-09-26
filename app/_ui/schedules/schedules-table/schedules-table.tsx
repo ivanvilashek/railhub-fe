@@ -7,6 +7,7 @@ import { useCallback } from 'react'
 import { SchedulesTableProps } from './schedules-table.type'
 import { SchedulesTableSkeleton } from '../schedules-table-skeleton'
 import { SortButton } from './sort-button'
+import { UpdateScheduleButton } from '../update-schedule-button'
 
 export const SchedulesTable: React.FC<SchedulesTableProps> = ({
   data,
@@ -106,6 +107,13 @@ export const SchedulesTable: React.FC<SchedulesTableProps> = ({
                 <SortButton sort={ScheduleSortKeys.PRICE} />
               </div>
             </th>
+
+            <th
+              scope="col"
+              className="hidden px-3 py-5 font-medium md:table-cell"
+            >
+              <span className="sr-only">Edit</span>
+            </th>
           </tr>
         </thead>
         <tbody className="bg-white">
@@ -124,7 +132,13 @@ export const SchedulesTable: React.FC<SchedulesTableProps> = ({
                 {format(item.departureAt, 'dd MMM, yyyy')}
               </td>
               <td className="hidden whitespace-nowrap px-3 py-3 md:table-cell">
-                {item.price}
+                {`₴${item.price}`}
+              </td>
+
+              <td>
+                <div className="flex items-center justify-center gap-x-3">
+                  <UpdateScheduleButton id={item.id} />
+                </div>
               </td>
             </tr>
           ))}

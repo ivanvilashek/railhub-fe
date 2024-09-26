@@ -1,3 +1,5 @@
+import { IconType } from 'react-icons'
+
 type BaseInput = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
@@ -11,4 +13,5 @@ export type InputProps = Omit<
   isDisabled?: boolean
   isInvalid?: boolean
   isReadOnly?: boolean
+  leftIcon?: IconType
 }
