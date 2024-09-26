@@ -39,12 +39,12 @@ export const SchedulesTable: React.FC<SchedulesTableProps> = ({
 
   return (
     <>
-      <table className="min-w-full text-gray-6">
+      <table className="min-w-full table-fixed text-gray-6">
         <thead className="border-y border-y-stroke-2 bg-gray-1 text-left text-sm font-normal">
           <tr>
             <th
               scope="col"
-              className="cursor-pointer select-none py-5 pl-6 pr-3 font-medium"
+              className="w-[15%] cursor-pointer select-none py-5 pl-6 pr-3 font-medium"
               onClick={() => onSortQueryChange(ScheduleSortKeys.TRAIN)}
             >
               <div className="flex flex-row items-center gap-x-2">
@@ -55,7 +55,7 @@ export const SchedulesTable: React.FC<SchedulesTableProps> = ({
 
             <th
               scope="col"
-              className="cursor-pointer select-none px-3 py-5 font-medium"
+              className="w-[15%] cursor-pointer select-none px-3 py-5 font-medium"
               onClick={() => onSortQueryChange(ScheduleSortKeys.ARRIVAL)}
             >
               <div className="flex flex-row items-center gap-x-2">
@@ -66,7 +66,7 @@ export const SchedulesTable: React.FC<SchedulesTableProps> = ({
 
             <th
               scope="col"
-              className="cursor-pointer select-none px-3 py-5 font-medium"
+              className="w-[15%] cursor-pointer select-none px-3 py-5 font-medium"
               onClick={() => onSortQueryChange(ScheduleSortKeys.DEPARTURE)}
             >
               <div className="flex flex-row items-center gap-x-2">
@@ -77,7 +77,7 @@ export const SchedulesTable: React.FC<SchedulesTableProps> = ({
 
             <th
               scope="col"
-              className="hidden cursor-pointer select-none px-3 py-5 font-medium md:table-cell"
+              className="hidden w-[15%] cursor-pointer select-none px-3 py-5 font-medium md:table-cell"
               onClick={() => onSortQueryChange(ScheduleSortKeys.ARRIVAL_AT)}
             >
               <div className="flex flex-row items-center gap-x-2">
@@ -88,7 +88,7 @@ export const SchedulesTable: React.FC<SchedulesTableProps> = ({
 
             <th
               scope="col"
-              className="hidden cursor-pointer select-none px-3 py-5 font-medium md:table-cell"
+              className="hidden w-[15%] cursor-pointer select-none px-3 py-5 font-medium md:table-cell"
               onClick={() => onSortQueryChange(ScheduleSortKeys.DEPARTURE_AT)}
             >
               <div className="flex flex-row items-center gap-x-2">
@@ -99,7 +99,7 @@ export const SchedulesTable: React.FC<SchedulesTableProps> = ({
 
             <th
               scope="col"
-              className="hidden cursor-pointer select-none px-3 py-5 font-medium md:table-cell"
+              className="hidden w-[15%] cursor-pointer select-none px-3 py-5 font-medium md:table-cell"
               onClick={() => onSortQueryChange(ScheduleSortKeys.PRICE)}
             >
               <div className="flex flex-row items-center gap-x-2">
@@ -110,7 +110,7 @@ export const SchedulesTable: React.FC<SchedulesTableProps> = ({
 
             <th
               scope="col"
-              className="hidden px-3 py-5 font-medium md:table-cell"
+              className="hidden w-[10%] px-3 py-5 font-medium md:table-cell"
             >
               <span className="sr-only">Edit</span>
             </th>
