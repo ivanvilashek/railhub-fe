@@ -4,8 +4,13 @@ import { getQueryClient } from '@app/lib/utils'
 import { Button } from '@app/ui/components'
 import { Schedules } from '@app/ui/schedules/schedules'
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
+import { Metadata } from 'next'
 import Link from 'next/link'
 import React from 'react'
+
+export const metadata: Metadata = {
+  title: 'Schedules',
+}
 
 const Page: React.FC<{
   searchParams: { page: string; search: string; sort: string; dir: string }

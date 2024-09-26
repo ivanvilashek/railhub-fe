@@ -3,9 +3,14 @@ import api from '@app/lib/queries/api'
 import { getQueryClient } from '@app/lib/utils'
 import { EditScheduleForm } from '@app/ui/schedules/edit-schedule-form'
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
+import { Metadata } from 'next'
 import Link from 'next/link'
 import React from 'react'
 import { FaArrowLeft } from 'react-icons/fa'
+
+export const metadata: Metadata = {
+  title: 'Edit Schedule',
+}
 
 const Page: React.FC<{ params: { id: string } }> = async ({ params }) => {
   const queryClient = getQueryClient()

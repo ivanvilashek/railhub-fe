@@ -1,10 +1,13 @@
-'use client'
-
 import { Routes } from '@app/lib/constants'
 import { CreateScheduleForm } from '@app/ui/schedules/create-schedule-form'
+import { Metadata } from 'next'
 import Link from 'next/link'
 import React from 'react'
 import { FaArrowLeft } from 'react-icons/fa'
+
+export const metadata: Metadata = {
+  title: 'Add Schedule',
+}
 
 const Page = () => {
   return (
