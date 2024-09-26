@@ -1,4 +1,5 @@
 export const ACCESS_TOKEN = '_rn_access_token'
 export const REFRESH_TOKEN = '_rn_refresh_token'
 export const SCHEDULES = 'schedules'
+export const SCHEDULE = 'schedule'
 export const USER = 'user'
