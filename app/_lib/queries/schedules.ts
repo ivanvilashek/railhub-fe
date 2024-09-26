@@ -25,7 +25,7 @@ export const useSchedules = () => {
       const { data } = await api.get(API.SCHEDULES, {
         params: {
           page,
-          limit: 8,
+          limit: 7,
           ...(dir && { dir }),
           ...(sort && { sort }),
           ...(search && { search }),

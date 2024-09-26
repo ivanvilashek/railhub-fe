@@ -19,7 +19,7 @@ const Layout: React.FC<PropsWithChildren> = async ({ children }) => {
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <Header />
-      <main className="flex h-auto min-h-screen bg-stroke-2 px-4 py-20 md:px-16 md:py-24">
+      <main className="flex h-auto min-h-screen bg-stroke-2 px-4 pb-4 pt-16 md:px-16 md:pb-10 md:pt-20">
         {children}
       </main>
     </HydrationBoundary>
