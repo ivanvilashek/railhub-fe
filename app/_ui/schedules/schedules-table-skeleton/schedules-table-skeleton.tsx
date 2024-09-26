@@ -9,49 +9,49 @@ export const SchedulesTableSkeleton: React.FC = () => {
         <tr>
           <th
             scope="col"
-            className="cursor-pointer select-none py-5 pl-6 pr-3 font-medium"
+            className="w-[15%] cursor-pointer select-none py-5 pl-6 pr-3 font-medium"
           >
             Train
           </th>
 
           <th
             scope="col"
-            className="cursor-pointer select-none px-3 py-5 font-medium"
+            className="w-[15%] cursor-pointer select-none px-3 py-5 font-medium"
           >
             Arrival
           </th>
 
           <th
             scope="col"
-            className="cursor-pointer select-none px-3 py-5 font-medium"
+            className="w-[15%] cursor-pointer select-none px-3 py-5 font-medium"
           >
             Departure
           </th>
 
           <th
             scope="col"
-            className="hidden cursor-pointer select-none px-3 py-5 font-medium md:table-cell"
+            className="hidden w-[15%] cursor-pointer select-none px-3 py-5 font-medium md:table-cell"
           >
             Arrival At
           </th>
 
           <th
             scope="col"
-            className="hidden cursor-pointer select-none px-3 py-5 font-medium md:table-cell"
+            className="hidden w-[15%] cursor-pointer select-none px-3 py-5 font-medium md:table-cell"
           >
             Departure At
           </th>
 
           <th
             scope="col"
-            className="hidden cursor-pointer select-none px-3 py-5 font-medium md:table-cell"
+            className="hidden w-[15%] cursor-pointer select-none px-3 py-5 font-medium md:table-cell"
           >
             Price
           </th>
 
           <th
             scope="col"
-            className="hidden cursor-pointer px-3 py-5 font-medium md:table-cell"
+            className="hidden w-[10%] cursor-pointer px-3 py-5 font-medium md:table-cell"
           >
             <span className="sr-only">Edit</span>
           </th>
