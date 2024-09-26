@@ -24,6 +24,10 @@ export const TableRowSkeleton = () => {
       <td className="whitespace-nowrap px-3 py-3">
         <div className="h-5 w-10 animate-pulse rounded-lg bg-stroke-2"></div>
       </td>
+
+      <td className="whitespace-nowrap px-3 py-3">
+        <div className="h-5 w-12 animate-pulse rounded-lg bg-stroke-2"></div>
+      </td>
     </tr>
   )
 }
