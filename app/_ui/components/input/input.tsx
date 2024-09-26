@@ -7,7 +7,7 @@ import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5'
 import { Icon } from '../icon'
 
 const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
-  { label, isDisabled, isReadOnly, className, type, ...rest },
+  { label, isDisabled, isReadOnly, className, type, leftIcon, ...rest },
   ref
 ) => {
   const [isVisible, setIsVisible] = useState<boolean>(false)
@@ -33,12 +33,20 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
         type={inputType}
         {...rest}
       />
-      {type === 'password' && (
+      {!leftIcon && type === 'password' && (
         <Icon
           icon={isVisible ? IoEyeOutline : IoEyeOffOutline}
           onClick={toggleVisibility}
           size={'1rem'}
-          className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer fill-gray-5 stroke-gray-5"
+          className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-5"
+        />
+      )}
+
+      {leftIcon && (
+        <Icon
+          icon={leftIcon}
+          size={'1rem'}
+          className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-5"
         />
       )}
       <span className="absolute -top-4 left-1.5 select-none text-xs text-gray-5 transition-colors peer-focus:text-primary">
