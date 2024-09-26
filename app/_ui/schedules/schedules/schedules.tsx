@@ -44,7 +44,7 @@ export const Schedules = () => {
         <SchedulesTable data={data?.data} isLoading={isPending} />
       </div>
 
-      <Pagination total={Math.ceil((data?.total || 1) / 8)} />
+      <Pagination total={Math.ceil((data?.total || 1) / 7)} />
     </div>
   )
 }
