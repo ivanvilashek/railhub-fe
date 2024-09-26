@@ -2,9 +2,8 @@
 
 import React, { useMemo } from 'react'
 import { SchedulesTable } from '../schedules-table'
-import { Pagination } from '@app/ui/components/pagination'
 import { useSchedules } from '@app/lib/queries/schedules'
-import { Input } from '@app/ui/components'
+import { Input, Pagination } from '@app/ui/components'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import _ from 'lodash'
 
@@ -44,7 +43,7 @@ export const Schedules = () => {
         <SchedulesTable data={data?.data} isLoading={isPending} />
       </div>
 
-      <Pagination total={Math.ceil((data?.total || 1) / 10)} />
+      <Pagination total={Math.ceil((data?.total || 1) / 8)} />
     </div>
   )
 }

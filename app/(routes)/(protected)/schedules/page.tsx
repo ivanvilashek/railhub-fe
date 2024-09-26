@@ -1,8 +1,10 @@
-import { API, SCHEDULES } from '@app/lib/constants'
+import { API, Routes, SCHEDULES } from '@app/lib/constants'
 import api from '@app/lib/queries/api'
 import { getQueryClient } from '@app/lib/utils'
+import { Button } from '@app/ui/components'
 import { Schedules } from '@app/ui/schedules/schedules'
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
+import Link from 'next/link'
 import React from 'react'
 
 const Page: React.FC<{
@@ -25,7 +27,7 @@ const Page: React.FC<{
       const { data } = await api.get(API.SCHEDULES, {
         params: {
           page,
-          limit: 10,
+          limit: 8,
           ...(dir && { dir }),
           ...(sort && { sort }),
           ...(search && { search }),
@@ -38,7 +40,13 @@ const Page: React.FC<{
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <div className="flex flex-1 flex-col gap-y-6">
-        <p className="text-xl font-medium text-gray-8">Schedule List</p>
+        <div className="flex items-center justify-between">
+          <p className="text-xl font-medium text-gray-8">Schedule List</p>
+
+          <Link href={`${Routes.SCHEDULES}/create`}>
+            <Button variant={'primary'}>Create</Button>
+          </Link>
+        </div>
 
         <Schedules />
       </div>
