@@ -7,7 +7,8 @@ export const SortButton: React.FC<SortButtonProps> = ({ sort }) => {
   const searchParams = useSearchParams()
   const dir = searchParams.get('dir')
 
-  if (sort !== searchParams.get('sort')) return null
+  if (sort !== searchParams.get('sort'))
+    return <div className="h-[14px] w-[14px]" />
 
   return dir === 'asc' ? <TiArrowSortedUp /> : <TiArrowSortedDown />
 }
