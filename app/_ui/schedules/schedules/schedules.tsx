@@ -19,6 +19,7 @@ export const Schedules = () => {
       _.debounce((value: string) => {
         const params = new URLSearchParams(searchParams)
         value ? params.set('search', value) : params.delete('search')
+        params.delete('page')
         replace(`${pathname}?${params.toString()}`)
       }, 400),
     [pathname, replace, searchParams]
