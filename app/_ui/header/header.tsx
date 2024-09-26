@@ -57,7 +57,7 @@ export const Header = () => {
           }
         >
           <span className="select-none text-sm font-bold text-white">
-            {`${data?.firstName.charAt(0)}${data?.lastName.charAt(0)}`}
+            {`${data?.firstName.charAt(0) || ''}${data?.lastName.charAt(0) || ''}`}
           </span>
         </div>
       </div>

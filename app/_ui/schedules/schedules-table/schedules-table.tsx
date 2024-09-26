@@ -135,7 +135,7 @@ export const SchedulesTable: React.FC<SchedulesTableProps> = ({
                 {`₴${item.price}`}
               </td>
 
-              <td>
+              <td className="hidden whitespace-nowrap px-3 py-3 md:table-cell">
                 <div className="flex items-center justify-center gap-x-3">
                   <UpdateScheduleButton id={item.id} />
                 </div>
