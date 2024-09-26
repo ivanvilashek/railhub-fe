@@ -9,6 +9,7 @@ export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   isDisabled,
   isLoading,
+  loaderClass,
   ...rest
 }) => {
   const buttonClasses = clsx(
@@ -19,7 +20,8 @@ export const Button: React.FC<ButtonProps> = ({
 
   const loaderClasses = clsx(
     'absolute !h-4 !w-4',
-    ButtonVariants[variant].loader
+    ButtonVariants[variant].loader,
+    loaderClass
   )
 
   return (

@@ -1,8 +1,8 @@
 'use client'
 
-import { useQuery } from '@tanstack/react-query'
-import { useSearchParams } from 'next/navigation'
-import { API, SCHEDULES } from '../constants'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useParams, useRouter, useSearchParams } from 'next/navigation'
+import { API, Routes, SCHEDULE, SCHEDULES } from '../constants'
 import { Pagination, Schedule } from '../types'
 import api from './api'
 
@@ -25,13 +25,93 @@ export const useSchedules = () => {
       const { data } = await api.get(API.SCHEDULES, {
         params: {
           page,
-          limit: 10,
+          limit: 8,
           ...(dir && { dir }),
           ...(sort && { sort }),
           ...(search && { search }),
         },
       })
       return data
+    },
+    refetchOnMount: 'always',
+  })
+}
+
+export const useCreateSchedule = () => {
+  const router = useRouter()
+  const queryClient = useQueryClient()
+
+  return useMutation<
+    Schedule,
+    Error,
+    Omit<Schedule, 'id' | 'createdAt' | 'updatedAt'>
+  >({
+    mutationFn: async (payload) => {
+      const { data } = await api.post(API.SCHEDULES, payload)
+      return data
+    },
+    onError: () => router.push(Routes.SCHEDULES),
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: [SCHEDULES] })
+      router.push(Routes.SCHEDULES)
+    },
+  })
+}
+
+export const useSchedule = () => {
+  const params = useParams()
+
+  const id = params?.id as string
+
+  return useQuery<Schedule>({
+    queryKey: [SCHEDULE, id],
+    queryFn: async () => {
+      const { data } = await api.get(`${API.SCHEDULES}/${id}`)
+      return data
+    },
+  })
+}
+
+export const useDeleteSchedule = () => {
+  const router = useRouter()
+  const queryClient = useQueryClient()
+  const params = useParams()
+
+  const id = params?.id as string
+
+  return useMutation<Schedule, Error>({
+    mutationFn: async () => {
+      const { data } = await api.delete(`${API.SCHEDULES}/${id}`)
+      return data
+    },
+    onError: () => router.push(Routes.SCHEDULES),
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: [SCHEDULES] })
+      router.push(Routes.SCHEDULES)
+    },
+  })
+}
+
+export const useUpdateSchedule = () => {
+  const router = useRouter()
+  const queryClient = useQueryClient()
+  const params = useParams()
+
+  const id = params?.id as string
+
+  return useMutation<
+    Schedule,
+    Error,
+    Partial<Omit<Schedule, 'id' | 'createdAt' | 'updatedAt'>>
+  >({
+    mutationFn: async (payload) => {
+      const { data } = await api.patch(`${API.SCHEDULES}/${id}`, payload)
+      return data
+    },
+    onError: () => router.push(Routes.SCHEDULES),
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: [SCHEDULES, 1] })
+      router.push(Routes.SCHEDULES)
     },
   })
 }

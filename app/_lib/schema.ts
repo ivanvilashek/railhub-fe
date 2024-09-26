@@ -1,3 +1,4 @@
+import { isAfter } from 'date-fns'
 import { z } from 'zod'
 
 const UserSchema = z.object({
@@ -17,3 +18,30 @@ const UserSchema = z.object({
 export const SignUpSchema = UserSchema.omit({ id: true })
 
 export const SignInSchema = UserSchema.pick({ email: true, password: true })
+
+export const ScheduleSchema = z
+  .object({
+    train: z
+      .string({ invalid_type_error: 'Please enter a train ID.' })
+      .min(3, 'Train ID must contain at least 3 characters'),
+    departure: z
+      .string({ invalid_type_error: 'Please enter a departure place.' })
+      .min(3, 'Departure placemust contain at least 3 characters'),
+    arrival: z
+      .string({ invalid_type_error: 'Please enter a arrival place.' })
+      .min(3, 'Arrival place must contain at least 3 characters'),
+    departureAt: z.coerce.date({ message: 'Please select departure date' }),
+    arrivalAt: z.coerce.date({ message: 'Please select arrival date' }),
+    price: z
+      .number({ message: 'Please enter ticket price' })
+      .gt(0, 'Please enter a valid price'),
+  })
+  .superRefine((data, ctx) => {
+    if (isAfter(data?.departureAt, data?.arrivalAt)) {
+      ctx.addIssue({
+        path: ['arrivalAt'],
+        code: 'custom',
+        message: 'Arrival date must be after departure date',
+      })
+    }
+  })

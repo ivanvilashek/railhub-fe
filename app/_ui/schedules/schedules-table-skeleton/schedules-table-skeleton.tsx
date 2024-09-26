@@ -48,6 +48,13 @@ export const SchedulesTableSkeleton: React.FC = () => {
           >
             Price
           </th>
+
+          <th
+            scope="col"
+            className="hidden cursor-pointer px-3 py-5 font-medium md:table-cell"
+          >
+            <span className="sr-only">Edit</span>
+          </th>
         </tr>
       </thead>
       <tbody className="bg-white">
